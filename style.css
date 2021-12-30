@@ -76,7 +76,7 @@ select {
 
 :root {
     --light: #f4f5f0;
-    --yellow: hsl(41, 100%, 51%);
+    --yellow: #ffb005;
     --green: hsla(150, 100%, 27%, 1);
     --red: hsla(357, 72%, 47%, 1);
     --dark: hsla(154, 89%, 4%, 1);
@@ -104,15 +104,15 @@ section .question {
 
 header h1 {
     margin: 0 auto;
-    background-color: var(--green);
+    background-color: var(--light);
     font-family: 'Monoton', cursive;
     text-align: center;
-    color: var(--light);
-    font-size: 1.5rem;
+    color: var(--red);
+    font-size: 1.8rem;
     font-weight: 400;
     letter-spacing: 2px;
     border-radius: 0 0 10px 10px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 4px -2px;
+    box-shadow: rgba(0, 0, 0, 0.137) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 4px -2px;
 }
 
 section {
@@ -212,28 +212,33 @@ section.section__what-size .size-card {
     max-width: 5rem;
 }
 
+
+
 section .size-card .btn-size {
-  
-  padding: 1em .5em;
-  background-image: url("./images/flag.svg");
-  background-size: cover;
+  padding: .6em .5em;
   border-radius: 10px;
   border: none;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   text-align: center;
   font-weight: 700;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; 
-  transition: all .3s ease-in-out;
+  box-shadow: 
+    0 0 0 3px var(--red),
+    0 0 0 6px var(--light),0 0 0 9px var(--green),
+    rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, 
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; 
+  transition: all .5s ease-in-out;
   cursor: pointer;
 }
 
 section .size-card .btn-size:hover,
 section .size-card .btn-size:focus {
+  background-image: url("./images/btn-flag.svg");
+  box-shadow: none;
   transform: scale(1.1);
 }
 
 div.size-card p {
-  padding-top: .6em;
+  padding-top: .8em;
   transition: all .3s ease-in-out;  
 }
 section .size-card .btn-size:hover ~ p,
@@ -280,9 +285,9 @@ div.water-icons{
 div.water-icon button {
   background: transparent url("./images/water-drop.png")
   no-repeat center;
-  background-size: 3.5rem;
-  height: 4rem;
-  width: 4rem;
+  background-size: 4.5rem;
+  height: 5rem;
+  width: 5rem;
   border: none;
   filter: grayscale(100%);
   cursor: pointer;  
@@ -292,7 +297,7 @@ div.water-icon button {
 div.water-icon button:hover,
 div.water-icon button:focus {
   filter: grayscale(0);
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 section.section__hydration .hydration-info{
@@ -311,8 +316,19 @@ section.section__total {
   padding: 2rem;
 }
 
+.poolish-div {
+  margin-left: auto;
+  margin-bottom: 2rem;
+  
+}
+
+.poolish-div input {
+  display: block;
+}
+
 .section__total .recipe-total {
   margin: 1em auto;
+  width: 75%;
   background-color: var(--green);
   padding: 2rem;
   transform: rotate(-6deg);
@@ -332,6 +348,81 @@ section.section__total {
  width: 1.5em;
 }
 
+.section__total ol li:nth-of-type(1) {
+  padding-top: 1em;
+}
+
 .text-yellow {
   color: var(--yellow);
+}
+
+section.section__total .recipe-title-div{
+  margin-top: 3rem;
+  padding: .5em;
+  border-radius: 10px;
+  background-image: linear-gradient(rgba(255,255,255,0.651), rgba(255, 255, 255, 0.651)), 
+  url("./images/btn-flag.svg");
+  background-size: cover;
+}
+
+section.section__total .recipe-title {
+  
+  text-align: center;
+  color: var(--dark);
+}
+
+/* checkbox styling poolish */
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+}
+
+input[type="checkbox"]:not(:checked) + label,
+input[type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 2.3em;
+    font-size: 1.05em;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+  /* checkbox aspect */
+input[type="checkbox"]:not(:checked) + label:before,
+input[type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: -8px;
+    width: 2em;
+    height: 2em;
+    border: 1px solid var(--red);
+    background: #FFF;
+    border-radius: 50%;
+    box-shadow: unset 0 1px 3px rgba(0,0,0, .2), 0 0 0 rgba(0, 0, 0, 0.2);
+    transition: all .275s;
+  }
+  
+input[type="checkbox"]:not(:checked) + label:after,
+input[type="checkbox"]:checked + label:after {
+content: "🍕";
+position: absolute;
+top: 9px;
+left: 1px;
+font-size: 1.375em;
+color: var(--red);
+line-height: 0;
+transition: all .3s;
+}
+
+/* checked mark aspect changes */
+input[type="checkbox"]:not(:checked) + label:after {
+opacity: 0;
+transform: scale(2) rotate(190deg);
+}
+
+input[type="checkbox"]:checked + label:after {
+opacity: 1;
+transform: scale(1) rotate(0);
 }

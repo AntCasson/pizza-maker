@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffb005" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@400;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Pizza Buddy</title>
@@ -16,7 +17,7 @@
 <body>
     <header>
         <section class="section__hero">
-            <h1 class="header__title-logo">Pizza Buddy</h1>
+            <h1 class="header__title-logo">Pizza Plotter</h1>
             <div class="hero-wrapper">
                 <p class="question">How many pizza's?</p>
                 <label for="pizza-select"></label>
@@ -59,11 +60,13 @@
         </div>
 
     </section>
+
     <div class="flag">
         <div class="green"></div>
         <div class="white"></div>
         <div class="red"></div>
     </div>
+
     <section class="section__hydration">
         <div class="section__hydration--wrapper">
             <p class="question">
@@ -86,8 +89,8 @@
             </div>
         </div>
 
-        <p class="hydration-info">Higher hydration will make the dough rise faster
-            but is also stickier and harder to work with.</p>
+        <p class="hydration-info">Higher hydration will make the dough rise faster but is also stickier and harder to work with.
+        </p>
     </section>
 
     <div class="flag">
@@ -97,20 +100,27 @@
     </div>
 
     <section class="section__total">
-        <input type="checkbox" id="poolish" name="poolish"/>
-        <label for="poolish">Make with poolish?</label>
+        <div class="poolish-div">
+            <input type="checkbox" id="poolish" name="poolish"/>
+            <label class="poolish" for="poolish">Make with poolish?</label>
+        </div>
         <div class="recipe-total" id="recipe">
             <p id="flour-p" class="flour">Flour
-                <span id="flour-weight">600</span> gr</p>
+                <span id="flour-weight">0</span> gr</p>
             <p id="water-p" class="water">Water
-                <span id="water-weight">340</span> gr</p>
+                <span id="water-weight">0</span> gr</p>
             <p id="salt-p" class="salt">Salt
-                <span id="salt-weight">8</span> gr</p>
+                <span id="salt-weight">0</span> gr</p>
             <p id="yeast-p" class="yeast">Yeast
-                <span id="yeast-weight">1,5</span> gr</p>
+                <span id="yeast-weight">0</span> gr</p>
         </div>
-
-        <ol class="dough-steps">
+        
+        <div class="recipe-title-div">
+            <h2 class="recipe-title" id="recipe-title">
+                3 pizza's, 32cm, 65%
+            </h2>
+        </div>
+        <ol id="dough-steps" class="dough-steps">
             <li>Put <span>flour</span> and <span>yeast</span> into large bowl.</li>
             <li>Mix <span>salt</span> and <span>water</span>. and add to large bowl.</li>
             <li>Mix together for 1 minute with big spoon or by hand. Wait for 20 minutes so that it's a bit less sticky.
