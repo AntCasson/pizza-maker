@@ -85,12 +85,16 @@ select {
 /*  MAIN SITE CSS*/
 
 body {
-  background-color: #FFAE03;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='100%25' height='100%25'%3E%3Cdefs%3E%3Cpattern id='p' width='100' height='100' patternUnits='userSpaceOnUse' patternTransform='rotate(85) scale(3.18)'%3E%3Cpath id='a' data-color='fill' fill='none' stroke='%23FFC400' stroke-width='2' d='M-25 20h50L0-20z'%3E%3C/path%3E%3Cuse xlink:href='%23a' x='100'%3E%3C/use%3E%3Cuse xlink:href='%23a' y='100'%3E%3C/use%3E%3Cuse xlink:href='%23a' x='100' y='100'%3E%3C/use%3E%3Cuse xlink:href='%23a' x='50' y='50'%3E%3C/use%3E%3Cuse xlink:href='%23a' x='50' y='150'%3E%3C/use%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23p)' width='100%25' height='100%25'%3E%3C/rect%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--green);
+  background-image: url("./images/bg-tile.png");
+  background-repeat: repeat;
   font-family: 'Poppins', sans-serif
+}
+
+.main-wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
 
 section .question {
@@ -109,7 +113,7 @@ header h1 {
     text-align: center;
     color: var(--red);
     font-size: 1.8rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 2px;
     border-radius: 0 0 10px 10px;
     box-shadow: rgba(0, 0, 0, 0.137) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 4px -2px;
@@ -301,33 +305,42 @@ div.water-icon button:focus {
 }
 
 section.section__hydration .hydration-info{
-  font-style: italic;
   margin-top: 1.8rem;
   margin-bottom: 0;
   padding-left: 1.2em;
   width: 75%;
-  font-size: 0.8em; 
+  font-style: italic;
+  font-size: 0.8em;
+  letter-spacing: .8px;
+
 }
 
 /* TOTAL RECIPE SECTION*/
 
 section.section__total {
   display: grid;
-  padding: 2rem;
-}
-
-.poolish-div {
-  margin-left: auto;
-  margin-bottom: 2rem;
   
 }
 
-.poolish-div input {
-  display: block;
+.poolish-div {
+  margin-top: 1.8em;
+  margin-left: auto;
+  margin-right: 2em;
+  padding: .5em;
+  padding-right: 1em;
+  margin-left: auto;
+  text-align: center;
+  font-weight: 500;
+  width: fit-content;
+  border-radius: 50vh;
+  margin-bottom: 2rem;
+  background-color: var(--green);
+  color: var(--light);
 }
 
+
 .section__total .recipe-total {
-  margin: 1em auto;
+  margin: 3em auto 1em auto;
   width: 75%;
   background-color: var(--green);
   padding: 2rem;
@@ -348,28 +361,28 @@ section.section__total {
  width: 1.5em;
 }
 
-.section__total ol li:nth-of-type(1) {
-  padding-top: 1em;
-}
-
 .text-yellow {
   color: var(--yellow);
 }
 
 section.section__total .recipe-title-div{
-  margin-top: 3rem;
-  padding: .5em;
-  border-radius: 10px;
   background-image: linear-gradient(rgba(255,255,255,0.651), rgba(255, 255, 255, 0.651)), 
   url("./images/btn-flag.svg");
   background-size: cover;
-}
-
-section.section__total .recipe-title {
-  
+  margin-top: 1.6em;
+  padding: .5em;
   text-align: center;
   color: var(--dark);
 }
+
+.dough-steps {
+  margin-top: 2.5em;
+  margin-inline: 2em;
+  padding: 2em;
+  line-height: 2;
+  font-weight: 500;
+}
+
 
 /* checkbox styling poolish */
 input[type="checkbox"]:not(:checked),
@@ -383,7 +396,6 @@ input[type="checkbox"]:not(:checked) + label,
 input[type="checkbox"]:checked + label {
     position: relative;
     padding-left: 2.3em;
-    font-size: 1.05em;
     line-height: 1.7;
     cursor: pointer;
 }
@@ -393,11 +405,10 @@ input[type="checkbox"]:not(:checked) + label:before,
 input[type="checkbox"]:checked + label:before {
     content: '';
     position: absolute;
-    left: -5px;
-    top: -8px;
+    left: -2px;
+    top: -5px;
     width: 2em;
     height: 2em;
-    border: 1px solid var(--red);
     background: #FFF;
     border-radius: 50%;
     box-shadow: unset 0 1px 3px rgba(0,0,0, .2), 0 0 0 rgba(0, 0, 0, 0.2);
@@ -408,9 +419,9 @@ input[type="checkbox"]:not(:checked) + label:after,
 input[type="checkbox"]:checked + label:after {
 content: "🍕";
 position: absolute;
-top: 9px;
-left: 1px;
-font-size: 1.375em;
+top: 12px;
+left: 5px;
+font-size: 1.2em;
 color: var(--red);
 line-height: 0;
 transition: all .3s;
