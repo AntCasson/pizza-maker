@@ -379,14 +379,15 @@ section.section__total .recipe-title-div{
 }
 
 .dough-steps {
-  width: max(60%, 75%);
-  background-color: var(--yellow);
   margin-top: 2.5em;
   margin-inline: auto;
   padding: 3em 3.2em;
+  width: max(60%, 75%);
+  background-color: var(--yellow);
   border-radius: 10px;
-  line-height: 2;
   font-weight: 500;
+  line-height: 2;
+  box-shadow: rgba(60, 64, 67, 0.4) 0px 1px 2px 0px, rgba(60, 64, 67, 0.2) 0px 2px 6px 2px; 
 }
 
 /* checkbox styling poolish */
@@ -427,12 +428,13 @@ position: absolute;
 top: 12px;
 left: 5px;
 font-size: 1.2em;
-color: var(--red);
+color: var(--dark);
 line-height: 0;
 transition: all .3s;
 }
 
 /* checked mark aspect changes */
+
 input[type="checkbox"]:not(:checked) + label:after {
 opacity: 0;
 transform: scale(2) rotate(190deg);
