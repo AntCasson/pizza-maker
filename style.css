@@ -85,16 +85,19 @@ select {
 /*  MAIN SITE CSS*/
 
 body {
-  background-color: var(--green);
-  background-image: url("./images/bg-tile.png");
-  background-repeat: repeat;
+  background-color: var(--light);
+  background-image: linear-gradient(rgba(255,255,255,0.651), rgba(255, 255, 255, 0.651)), 
+  url("./images/bg-body.png");
+  background-repeat: round;
+  background-size: contain;
   font-family: 'Poppins', sans-serif
 }
 
 .main-wrapper {
   margin: 0 auto;
   max-width: 600px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  
 }
 
 section .question {
@@ -376,13 +379,15 @@ section.section__total .recipe-title-div{
 }
 
 .dough-steps {
+  width: max(60%, 75%);
+  background-color: var(--yellow);
   margin-top: 2.5em;
-  margin-inline: 2em;
-  padding: 2em;
+  margin-inline: auto;
+  padding: 3em 3.2em;
+  border-radius: 10px;
   line-height: 2;
   font-weight: 500;
 }
-
 
 /* checkbox styling poolish */
 input[type="checkbox"]:not(:checked),
