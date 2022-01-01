@@ -24,7 +24,7 @@ const yeast = document.querySelector("#yeast-weight")
 
 document.querySelectorAll(".btn-size").forEach(btn => {
     btn.addEventListener("click", (event) => {
-        let sizePie = event.target.textContent.trim()
+        let sizePie = event.target.innerText
         flourAmount = 0
         yeastAmount = 0.5
         saltAmount = pizzaSelect.value 
