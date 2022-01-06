@@ -3,6 +3,14 @@ const pizzaDisplay = document.querySelector("#pie-count-display")
 const poolish = document.querySelector("#poolish")
 const recipeTitle = document.querySelector("#recipe-title")
 const poolishSpan = document.querySelector("#yeast-p")
+const poolishRecipe = document.querySelector(".poolish-recipe")
+const poolishRatio = document.querySelector("#poolish-ratio")
+const waterOrPoolish = document.querySelector("#yeast-or-poolish")
+
+function renderPoolishText() {
+  return `<strong>For the poolish:</strong></br> Mix <span class="text-yellow">${poolishWeight / 2}</span> gr water, <span class="text-yellow">${numberOfPizzas}</span> gr yeast and <span class="text-yellow">${numberOfPizzas}</span> gr honey. Add <span class="text-yellow">${poolishWeight / 2}</span> gr flour and let it rest at room temp for <span class="text-yellow">2</span> hours. Then put in fridge for <span class="text-yellow">16/24</span> hours. Go make that PIE!` 
+}
+
 // text that will be rendered in recipe-title
 let sizeText = ""
 
@@ -22,6 +30,8 @@ const water = document.querySelector("#water-weight")
 const salt = document.querySelector("#salt-weight")
 const yeast = document.querySelector("#yeast-weight")
 
+
+//check pizza size
 document.querySelectorAll(".btn-size").forEach(btn => {
     btn.addEventListener("click", (event) => {
         let sizePie = event.target.innerText
@@ -49,14 +59,17 @@ document.querySelectorAll(".btn-size").forEach(btn => {
     })
 })
 
+//calc the water to flour ratio
 function hydrationCalc(e) {
   let hydration = e.target.id.slice(6, 8)
   waterPercentage = Number.parseInt(hydration)
   waterAmount = Math.round(flourAmount / 100 * waterPercentage)
+  water.textContent = waterAmount
 
   renderRecipe()
 }
-//Even listeners for the hydration buttons
+
+//Event listeners for the hydration buttons
 document.querySelectorAll(".water-drop").forEach(btn => {
     btn.addEventListener("click", hydrationCalc)})
 
@@ -69,35 +82,45 @@ pizzaSelect.addEventListener("change", () => {
       }
 
     // poolish checked or not 
-    poolishWeight = 75 * numberOfPizzas
+    poolishWeight = 100 * numberOfPizzas
     if (poolish.checked) {
-      poolishSpan.innerHTML = `Poolish <span class="text-yellow">${poolishWeight}</span> gr`}
+      poolishSpan.innerHTML = `Poolish <span class="text-yellow">${poolishWeight}</span> gr`
+      poolishRecipe.innerHTML = renderPoolishText()
+    }
 
     renderRecipe()
 })
 
 function renderRecipe() {
+    
     recipeTitle.innerHTML = `You're making ${numberOfPizzas} ${sizeText} pizza('s).`
-    water.textContent = Math.round(flourAmount / 100 * waterPercentage) * numberOfPizzas
+    water.textContent = Math.round(waterAmount) * numberOfPizzas
     flour.textContent = Math.round(flourAmount * numberOfPizzas)
     //the 3.5 in salt is the standard amount of grams per pizza
     salt.textContent = saltAmount * 3.5
     yeast.textContent = Math.round(yeastAmount * numberOfPizzas)
-    poolishWeight = 75 * numberOfPizzas 
+    poolishWeight = 100 * numberOfPizzas 
     
 }
 
 poolish.addEventListener("change", poolishCalc)
 
 function poolishCalc() {
-  if (poolish.checked) {
+  if(poolish.checked) {
+    poolishRecipe.classList.toggle("hide")
     poolishSpan.innerHTML = `Poolish <span class="text-yellow">${poolishWeight}</span> gr`
-    flourAmount = flourAmount- 37.5
-    waterAmount = waterAmount- 37.5 
-  } else {
-    flourAmount = flourAmount+ 37.5 
-    waterAmount = waterAmount+ 37.5 
-    poolishSpan.innerHTML = `Yeast <span id="yeast-weight">${Math.round(yeastAmount * numberOfPizzas)}</span> gr`
-  }
+    poolishRecipe.innerHTML = renderPoolishText()
+    waterOrPoolish.textContent = "poolish" 
+    flourAmount = flourAmount- 50
+    waterAmount = waterAmount- 50
+    } else {
+        poolishRecipe.classList.toggle("hide")
+        waterOrPoolish.textContent = "yeast" 
+        flourAmount = flourAmount+ 50 
+        waterAmount = waterAmount+ 50 
+        poolishSpan.innerHTML = `Yeast <span id="yeast-weight">${Math.round(yeastAmount * numberOfPizzas)}</span> gr` 
+      }
+
+  console.log(flourAmount)
   renderRecipe()
 }

@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="main-wrapper">
+    <main class="main-wrapper">
 
     <header>
         <section class="section__hero">
@@ -64,7 +64,6 @@
                 <p>40cm/16inch</p>
             </div>
         </div>
-
     </section>
 
     <div class="flag">
@@ -75,10 +74,7 @@
 
     <section class="section__hydration">
         <div class="section__hydration--wrapper">
-            <p class="question">
-                How much water?
-            </p>
-
+            <p class="question">How much water?</p>
             <div class="water-icons">
                 <div class="water-icon">
                     <button id="water-60" class="water-drop"></button>
@@ -94,8 +90,8 @@
                 </div>
             </div>
         </div>
-
-        <p class="hydration-info">Higher hydration will make the dough rise faster but is also stickier and harder to work with.
+        <p class="hydration-info">Higher hydration will make the dough rise 
+            faster but is also stickier and harder to work with.
         </p>
     </section>
 
@@ -106,7 +102,6 @@
     </div>
 
     <section class="section__total">
-        
         <div class="recipe-total" id="recipe">
             <p id="flour-p" class="flour">Flour
                 <span id="flour-weight">0</span> gr</p>
@@ -120,7 +115,7 @@
 
         <div class="poolish-div">
             <input type="checkbox" id="poolish" name="poolish"/>
-            <label class="poolish" for="poolish">Make with poolish?</label>
+            <label class="poolish" for="poolish">Poolish</label>
         </div>
         
         <div class="recipe-title-div">
@@ -130,16 +125,23 @@
         </div>
         
         <ol id="dough-steps" class="dough-steps">
-            <li>Put <span>flour</span> and <span>yeast</span> into large bowl.</li>
-            <li>Mix <span>salt</span> and <span>water</span>. and add to large bowl.</li>
-            <li>Mix together for 1 minute with big spoon or by hand. Wait for 20 minutes so that it's a bit less sticky.
+            <p class="poolish-recipe hide"></p>
+            <li>Put <span>water</span> and <span id="yeast-or-poolish">yeast</span> into large bowl.</li>
+            <li>Mix <span>salt</span> and <span>flour</span> separately and add to large bowl.</li>
+            <li>Mix everything together for 1 minute with big spoon or by hand. Wait for 20 minutes so that it's gets bit less sticky.
             </li>
             <li>Now knead the dough for a 10 minutes until it looks like a big ball of mozzarella.</li>
         </ol>
 
     </section>
 
-    </div>
+    <footer>
+        <p>
+            Made by <span>AntCasson</span>
+        </p>
+        <a href="https://github.com/AntCasson"><img src="./images/GitHub.png" alt="github logo" > </a>
+    </footer>
+    </main>
 </body>
 
 <script type="text/javascript" src="./index.js"></script>
